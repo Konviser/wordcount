@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+    </head>
+    <body>
+        <article>
+            <h1>Computer Graphics</h1>
+            <p>
+                Computer graphics are graphics created using computers and the representation of image data
+                by a computer specifically with help from specialized graphic hardware and software.
+
+                The interaction and understanding of computers and interpretation of data has been made
+                easier because of computer graphics. Computer graphic development has had a significant
+                impact on many types of media and have revolutionized animation, movies and the video
+                game industry.
+            </p>
+
+            <h1>Overview</h1>
+            <p>
+                The term computer graphics has been used in a broad sense to describe "almost everything on
+                computers that is not text or sound".[1] Typically, the term computer graphics refers to
+                several different things:
+            </p>
+
+            <ul>
+                <li>the representation and manipulation of image data by a computer</li>
+                <li>the various technologies used to create and manipulate images</li>
+                <li>
+                    the sub-field of computer science which studies methods for digitally synthesizing and
+                    manipulating visual content, see study of computer graphics
+                </li>
+            </ul>
+
+            <p>
+                Computer graphics is widespread today. Computer imagery is found on television, in newspapers,
+                for example in weather reports, or for example in all kinds of medical investigation and surgical
+                procedures. A well-constructed <a href="http://en.wikipedia.org/wiki/Chart">graph</a> can present
+                complex statistics in a form that is easier to understand and interpret. In the media "such graphs
+                are used to illustrate papers, reports, thesis", and other presentation material.[2]
+
+                Many powerful tools have been developed to visualize data. Computer generated imagery can be
+                categorized into several different types: two dimensional (2D), three dimensional (3D), and animated
+                graphics. As technology has improved, 3D computer graphics have become more common, but 2D computer
+                graphics are still widely used. Computer graphics has emerged as a sub-field of computer science
+                which studies methods for digitally synthesizing and manipulating visual content. Over the past
+                decade, other specialized fields have been developed like information visualization, and scientific
+                visualization more concerned with "the visualization of three dimensional phenomena (architectural,
+                meteorological, medical, biological, etc.), where the emphasis is on realistic renderings of volumes,
+                surfaces, illumination sources, and so forth, perhaps with a dynamic (time) component".[3]
+            </p>
+        </article>
+
+        <section id="result"></section>
+
+        <script>
+            // Your code
+        </script>
+    </body>
+    <script>
+
+        (function(){
+
+            var textStrNoLineBrk = document.body.innerText.split('\n');
+            var wordsCount =  {};
+
+            //get words from the string
+            textStrNoLineBrk.forEach(function(item){
+
+                item.split(/\s/).forEach(function(word){
+                
+                    word = word.replace(/([^a-zA-Z])+/g,'').toLowerCase();
+                    if (word){
+                        if (wordsCount.hasOwnProperty(word)){
+                            wordsCount[word]++;
+                        } else {
+                            wordsCount[word] = 1;
+                        }
+                    }
+                })
+            });
+
+            var resultPlaceholder = document.getElementById('result'); 
+            var ol  = document.createElement('ol');
+
+            for (var word in wordsCount){
+
+                var li = document.createElement("li");
+                li.textContent = word + ' ('+ wordsCount[word] +')';
+                ol.appendChild(li);
+            }
+            resultPlaceholder.appendChild(ol);
+
+        })()
+
+
+    </script>
+</html>
